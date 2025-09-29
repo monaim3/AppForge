@@ -13,7 +13,6 @@ fs.createReadStream("websites.csv")
       const appPath = path.join(__dirname, "..", "build", site.domain);
       fs.ensureDirSync(appPath);
 
-      // --- 1️⃣ Create App.jsx ---
       const appCode = `
         import React from "react";
         import ReactDOM from "react-dom/client";
@@ -44,7 +43,6 @@ fs.createReadStream("websites.csv")
       `;
       fs.writeFileSync(path.join(appPath, "App.jsx"), appCode);
 
-      // --- 2️⃣ Create index.html ---
       const indexHtml = `
         <!DOCTYPE html>
         <html lang="en">
@@ -61,7 +59,6 @@ fs.createReadStream("websites.csv")
       `;
       fs.writeFileSync(path.join(appPath, "index.html"), indexHtml);
 
-      // --- 3️⃣ Create package.json ---
       const packageJson = {
         name: site.domain.replace(/\./g, "-"),
         version: "1.0.0",
@@ -85,7 +82,6 @@ fs.createReadStream("websites.csv")
         JSON.stringify(packageJson, null, 2)
       );
 
-      // --- 4️⃣ Create vite.config.js ---
       const viteConfig = `
         import { defineConfig } from "vite";
         import react from "@vitejs/plugin-react";
@@ -96,12 +92,11 @@ fs.createReadStream("websites.csv")
       `;
       fs.writeFileSync(path.join(appPath, "vite.config.js"), viteConfig);
 
-      // --- 5️⃣ Auto-install dependencies ---
       console.log(`Installing dependencies for ${site.domain}...`);
       execSync("npm install", { cwd: appPath, stdio: "inherit" });
 
       console.log(` ${site.domain} is ready! Run 'npm start' inside this folder.`);
     });
 
-    console.log("🎉 All apps generated and ready to run!");
+    console.log(" All apps generated and ready to run!");
   });
