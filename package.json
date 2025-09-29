@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "csv-parser": "^3.2.0",
+    "fs-extra": "^11.3.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "vite": "^7.1.7"
+  },
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+"scripts": {
+  "start": "node scripts/generateApps.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
